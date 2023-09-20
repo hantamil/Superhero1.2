@@ -14,7 +14,8 @@ public class UserInterface {
         boolean runProgram = true;
 
 
-        int menuNumber = 0;
+        int menuNumber;
+
         while (runProgram) {
             System.out.println("\nChoose your next step and enter a number:");
             System.out.println("1 Create");
@@ -29,8 +30,6 @@ public class UserInterface {
             }
 
             menuNumber = scanner.nextInt();
-
-            String findSuperhero = null;
             if (menuNumber == 1) {
                 Scanner superheroInput = new Scanner(System.in);
 
@@ -68,6 +67,7 @@ public class UserInterface {
                     }
                 }
             } else if (menuNumber == 3) {
+                String findSuperhero = null;
                 System.out.println("Enter the superhero name");
                 findSuperhero = searchSuperhero.next();
 
@@ -79,40 +79,63 @@ public class UserInterface {
 
 
             } else if (menuNumber == 4) {
-                Scanner editInput = new Scanner(System.in);
-                System.out.println("If you have nothing to edit in the following simply press Enter");
 
-                System.out.println("Enter the superhero name to edit: ");
-                String editName = editInput.next();
-                // scanner input skal søge i databasen
+                //TODO fix
+                String findSuperhero = null;
 
-                boolean found =
+                Scanner searchEdit = new Scanner(System.in);
+                System.out.println("Enter the name of the superhero you would like to edit:");
+                String searchSHName = searchEdit.nextLine();
+                ArrayList<Superhero> searchSHN = superheroDatabase.findSuperhero(searchSHName);
 
-                for (Database superheroList : Superhero){
-                    if(Database.getSuperheroList())
+                if (!searchSHN.isEmpty()) {
+                    System.out.println("Superheroes have been found.");
+
+                    for (int superhero = 0; superhero < searchSHN.size(); superhero++){
+                        System.out.println(superhero + 1 + ".\n" + searchSHN.get(superhero));
+                        System.out.println();
+                    }
+
+                    System.out.println("Type in number of the superhero you would like to edit:");
+                    int superheroNumber = menuNumber;
+                    Superhero editSuperhero = searchSHN.get(superheroNumber - 1);
+
+                    System.out.println("Edit the data and press ENTER. If the data does not require changes, then press ENTER.");
+
+                    System.out.println("Superhero Name: " + editSuperhero.getSuperheroName());
+                    String newSuperheroName = searchSuperhero.nextLine();
+                    if (!newSuperheroName.isEmpty())
+                        editSuperhero.setSuperheroName(newSuperheroName);
+
+                    System.out.println("First name: " + editSuperhero.getFirstName());
+                    String newFirstName = searchSuperhero.nextLine();
+                    if (!newFirstName.isEmpty())
+                        editSuperhero.setFirstName(newFirstName);
+
+                    System.out.println("Last name: " + editSuperhero.getLastName());
+                    String newLastName = searchSuperhero.nextLine();
+                    if (!newLastName.isEmpty())
+                        editSuperhero.setLastName(newLastName);
+
+                    System.out.println("Abilities: " + editSuperhero.getAbilities());
+                    String newAbilities = searchSuperhero.nextLine();
+                    if (!newAbilities.isEmpty())
+                        editSuperhero.setAbilities(newAbilities);
+
+                    System.out.println("Type: " + editSuperhero.getType());
+                    String newType = searchSuperhero.nextLine();
+                    if (!newType.isEmpty())
+                        editSuperhero.setType(newType);
+
+
+                } else {
+                    System.out.println("No results matches your search: " + findSuperhero);
                 }
 
-                System.out.println("Enter new superhero name:");
-                String newSuperheroName = editInput.nextLine();
-                if (!newSuperheroName.isEmpty()){
-                    editInput.setSuperheroName(newSuperheroName);
-                }
 
-
-                System.out.println("Enter new legal first name:");
-                String newFirstName = editInput.next();
-
-                System.out.println("Enter new legal last name:");
-                String newLastName = editInput.next();
-
-                System.out.println("Enter new abilities: ");
-                String newAbilities = editInput.next();
-
-                System.out.println("Enter new creature: ");
-                String newType = editInput.next();
-
-
-                superheroDatabase.editSuperhero(editName, newSuperheroName, newFirstName, newLastName, newAbilities, newType);
+            }else if (menuNumber == 9) {
+                System.out.println("We hope to see you again soon");
+                runProgram = false;
             }
         }
 
