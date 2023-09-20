@@ -25,18 +25,24 @@ public class Database {
         return superheroList;
     }
 
-    public ArrayList<Superhero> findSuperhero(String findSuperheroName) {
+    public ArrayList<Superhero> findSuperhero(String superheroName) {
         ArrayList<Superhero> searchSHN = new ArrayList<>();
 
         for (Superhero superhero : superheroList) {
-            if (superhero.getSuperheroName().contains(findSuperheroName)) {
-                break;
+            if (superhero.getSuperheroName().toLowerCase().contains(superheroName.toLowerCase())) {
+                    searchSHN.add(superhero);
             }
-            if (!searchSHN.contains(superhero.getSuperheroName())) ;
-            searchSHN.add(superhero);
         }
         return searchSHN;
+    }
 
+    public ArrayList<String> findSuperheroesNames(String superheroName) {
+        ArrayList<Superhero> superheroes = findSuperhero(superheroName);
+        ArrayList<String> superheroNames = new ArrayList<String>();
+        for (Superhero superhero : superheroes) {
+            superheroNames.add(superhero.getSuperheroName());
+        }
+        return superheroNames;
     }
 
     public void editSuperhero(String superheroName, String newSuperheroName, String newFirstName, String newLastName, String newAbilities, String newType) {
@@ -55,16 +61,6 @@ public class Database {
         if (!found) {
             System.out.println("Superhero not found");
         }
-
-   /* public ArrayList<Superhero> searchSuperheroes (String name) {
-        ArrayList<Superhero> searchResult = new ArrayList<>();
-        for (Superhero i: superheroes) {
-            if(i.getSuperheroName().contains(name)) {
-                searchResult.add(i);
-            }
-        }
-        return searchResult;
-    }*/
 
     }
 }

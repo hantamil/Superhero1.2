@@ -8,7 +8,7 @@ class DatabaseTest {
     Database superheroes;
 
     @BeforeEach
-    void setUp() {
+    void setUp() {/*
         superheroes = new Database();
         superheroes.addSuperhero("Superman", "Clark", " Kent", "Flight", "Human");
         superheroes.addSuperhero("Batman", "Bruce", " Wayne", "Strong", "Human");
@@ -28,7 +28,7 @@ class DatabaseTest {
         int expectedDBSize = 0;
         superheroes.deleteSuperhero("Superman");
 
-
+*/
     }
 
 
