@@ -18,15 +18,16 @@ public class UserInterface {
 
         while (runProgram) {
             System.out.println("\nChoose your next step and enter a number:");
-            System.out.println("1 Create");
-            System.out.println("2 See complete list of superhero");
-            System.out.println("3 Search for superhero(es)");
-            System.out.println("4 Edit superhero");
-            System.out.println("9 Close");
+            System.out.println("1. Create");
+            System.out.println("2. See complete list of superhero");
+            System.out.println("3. Search for superhero(es)");
+            System.out.println("4. Edit superhero");
+            System.out.println("9. Close");
 
             if (!scanner.hasNextInt()) {
                 String text = scanner.next();
                 System.out.printf(text + " is not an eligible number. Try again. ");
+
             }
 
             menuNumber = scanner.nextInt();
@@ -138,11 +139,6 @@ public class UserInterface {
                 runProgram = false;
             }
         }
-
-        /*else (menuNumber == 9) {
-            System.out.println("We hope to see you again soon");
-            runProgram = false;
-        }*/
     }
-}
+    }
 

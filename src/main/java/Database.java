@@ -1,7 +1,6 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
-
 import static java.util.List.of;
 
 public class Database {
@@ -15,7 +14,6 @@ public class Database {
         superheroList.add(new Superhero("Superman", "Clark", " Kent", "Flight", "Human"));
         superheroList.add(new Superhero("Batman", "Bruce", " Wayne", "Strong", "Human"));
         superheroList.add(new Superhero("Spiderman", "Peter", " Parker", "Web", "Human"));
-
     }
 
     public void addSuperhero(String superheroName, String firstName, String lastName, String abilities, String creature) {
@@ -27,8 +25,8 @@ public class Database {
         return superheroList;
     }
 
-    public ArrayList<String> findSuperhero(String findSuperheroName) {
-        ArrayList<String> searchSHN = new ArrayList<>();
+    public ArrayList<Superhero> findSuperhero(String findSuperheroName) {
+        ArrayList<Superhero> searchSHN = new ArrayList<>();
 
         for (Superhero superhero : superheroList) {
             if (superhero.getSuperheroName().contains(findSuperheroName)) {
