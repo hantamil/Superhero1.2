@@ -14,6 +14,10 @@ public class UserInterface {
         return scanner.nextInt();
     }
 
+
+
+
+
     public void startProgram() {
         Database superheroDatabase = new Database();
         Scanner searchSuperhero = new Scanner(System.in);
