@@ -45,22 +45,13 @@ public class Database {
         return superheroNames;
     }
 
-    public void editSuperhero(String superheroName, String newSuperheroName, String newFirstName, String newLastName, String newAbilities, String newType) {
-        boolean found = false;
-        for (Superhero superhero : superheroList) {
-            if (superhero != null && superhero.getSuperheroName().equalsIgnoreCase(superheroName)) {
-                superhero.setSuperheroName(newSuperheroName);
-                superhero.setFirstName(newFirstName);
-                superhero.setLastName(newLastName);
-                superhero.setAbilities(newAbilities);
-                superhero.setType(newType);
-                System.out.println("Superhero information updated successfully.");
-                break;
-            }
+    public void deleteSuperhero (String superheroName){
+        int foundIndex = -1;
+        for (int superhero = 0; superhero < superheroList.size(); superhero++){
+          if(superheroList.get(superhero).getSuperheroName().equals(superheroName)){
+              foundIndex = superhero;
+          }
         }
-        if (!found) {
-            System.out.println("Superhero not found");
-        }
-
+        superheroList.remove(foundIndex);
     }
 }

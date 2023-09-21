@@ -1,19 +1,17 @@
-import java.util.ArrayList;
-
 public class Superhero {
 
     private String superheroName;
     private String firstName;
     private String lastName;
     private String abilities;
-    private String type;
+    private String species;
 
-    public Superhero(String superheroName, String firstName, String lastName, String abilities, String type){
+    public Superhero(String superheroName, String firstName, String lastName, String abilities, String species){
         this.superheroName = superheroName;
         this.firstName = firstName;
         this.lastName = lastName;
         this.abilities = abilities;
-        this.type = type;
+        this.species = species;
     }
 
     public String getSuperheroName() {
@@ -32,8 +30,8 @@ public class Superhero {
         return abilities;
     }
 
-    public String getType() {
-        return type;
+    public String getSpecies() {
+        return species;
     }
 
     public void setSuperheroName(String superheroName) {
@@ -52,7 +50,7 @@ public class Superhero {
         this.abilities=abilities;
     }
 
-    public void setType(String type) {
-        this.type=type;
+    public void setSpecies(String species) {
+        this.species = species;
     }
 }
