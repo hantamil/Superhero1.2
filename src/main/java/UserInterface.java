@@ -135,6 +135,13 @@ public class UserInterface {
                    /* for (int superhero = 0; superhero < superheroName.size(); superhero++){
                         System.out.println(superhero + 1 + ".\n" + superheroName.get(superhero));
                     }*/
+
+
+
+
+
+
+
                 }
 
             } else if (menuNumber == 9) {
