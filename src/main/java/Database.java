@@ -1,7 +1,4 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
-import static java.util.List.of;
 
 public class Database {
     private int count = 0;
@@ -38,7 +35,7 @@ public class Database {
 
     public ArrayList<String> findSuperheroesNames(String superheroName) {
         ArrayList<Superhero> superheroes = findSuperhero(superheroName);
-        ArrayList<String> superheroNames = new ArrayList<String>();
+        ArrayList<String> superheroNames = new ArrayList<>();
         for (Superhero superhero : superheroes) {
             superheroNames.add(superhero.getSuperheroName());
         }
@@ -46,12 +43,13 @@ public class Database {
     }
 
     public void deleteSuperhero (String superheroName){
-        int foundIndex = -1;
+        int foundIndex;
         for (int superhero = 0; superhero < superheroList.size(); superhero++){
-          if(superheroList.get(superhero).getSuperheroName().equals(superheroName)){
+          if(superheroList.get(superhero).getSuperheroName().equalsIgnoreCase(superheroName)){
               foundIndex = superhero;
+              superheroList.remove(foundIndex);
+              return;
           }
         }
-        superheroList.remove(foundIndex);
     }
 }
